@@ -1,0 +1,60 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# mapping
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of this article is to demonstrate how to visualise animated traces in an interactive map with R.
+
+You can set-up a basic animated map with `mapdeck` as follows:
+
+```{r, eval=FALSE}
+library(mapdeck)
+library(sf)
+mapdeck(
+location = c(145, -37.8)
+, zoom = 10
+, style = mapdeck_style("dark")
+, token = Sys.getenv("MAPBOX")
+) %>%
+ add_trips(
+   data = sf
+   , animation_speed = 2000
+   , trail_length = 1000
+   , stroke_colour = "#FFFFFF"
+)
+
+```
+
+![](https://user-images.githubusercontent.com/1825120/132259993-c4f39ac4-801c-4a38-8d8d-98fb05772d58.gif)
+
+```{r}
+f_gpx = "../gigwork.github.io/data/01._Adnan_aka_Adeeb/01._.gpx_file/strava_4658971578.g"
+trace =
+```
+
+There is also a way to do it with the `rdeck` package but this package is not mature or well documented at present.
+
+```{r}
+remotes::install_github("anthonynorth/rdeck")
+library(rdeck)
+?rdeck::trips_layer
+```
+
+<!-- With plotly much is possible. -->
+<!-- Let's start with a simple GPS plot: -->
+
+
+
